@@ -1,0 +1,38 @@
+AB: BACKGROUND: Fobservational studies suggest that male circumcision may provide protection against HIV-1 infection. A randomized, controlled intervention trial was conducted in a general population of South Africa to test this hypothesis. METHODS AND FINDINGS: A total of 3,274 uncircumcised men, aged 18-24 y, were randomized to a control or an intervention group with follow-up visits at months 3, 12, and 21. Male circumcision was offered to the intervention group immediately after randomization and to the control group at the end of the follow-up. The grouped censored data were analyzed in intention-to-treat, univariate and multivariate, analyses, using piecewise exponential, proportional hazards models. Rate ratios (RR) of HIV incidence were determined with 95% CI. Protection against HIV infection was calculated as 1 - RR. The trial was stopped at the interim analysis, and the mean (interquartile range) follow-up was 18.1 mo (13.0-21.0) when the data were analyzed. There were 20 HIV infections (incidence rate = 0.85 per 100 person-years) in the intervention group and 49 (2.1 per 100 person-years) in the control group, corresponding to an RR of 0.40 (95% CI: 0.24%-0.68%; p &lt; 0.001). This RR corresponds to a protection of 60% (95% CI: 32%-76%). When controlling for behavioural factors, including sexual behaviour that increased slightly in the intervention group, condom use, and health-seeking behaviour, the protection was of 61% (95% CI: 34%-77%). CONCLUSION: Male circumcision provides a degree of protection against acquiring HIV infection, equivalent to what a vaccine of high efficacy would have achieved. Male circumcision may provide an important way of reducing the spread of HIV infection in sub-Saharan Africa. (Preliminary and partial results were presented at the International AIDS Society 2005 Conference, on 26 July 2005, in Rio de Janeiro, Brazil.).
+AD: Hopital Ambroise-Pare, Assitance Publique-Hopitaux de Paris, Boulogne, France. bertran.auvert@apr.aphp.fr
+AID: 05-PLME-RA-0310R1 [pii] #AND# 10.1371/journal.pmed.0020298 [doi]
+AU: Auvert B #AND# Taljaard D #AND# Lagarde E #AND# Sobngwi-Tambekou J #AND# Sitta R #AND# Puren A
+CIN: PLoS Med. 2006 Jan;3(1):e64; author reply e67. PMID: 16435894 #AND# PLoS Med. 2006 Jan;3(1):e71; author reply e67. PMID: 16435901 #AND# PLoS Med. 2005 Nov;2(11):e393. PMID: 16231995 #AND# PLoS Med. 2005 Nov;2(11):e293. PMID: 16231994 #AND# PLoS Med. 2005 Nov;2(11):e287. PMID: 16231993 #AND# PLoS Med. 2006 Jan;3(1):e70. PMID: 16435900 #AND# PLoS Med. 2006 Jan;3(1):e75; author reply e67. PMID: 16435905 #AND# PLoS Med. 2006 Jan;3(1):e66; author reply e67. PMID: 16435896 #AND# PLoS Med. 2006 Jan;3(1):e65; author reply e67. PMID: 16435895 #AND# PLoS Med. 2006 Jan;3(1):e63; author reply e67. PMID: 16435893 #AND# PLoS Med. 2006 Jan;3(1):e78. PMID: 16435906 #AND# PLoS Med. 2006 Jan;3(1):e74; author reply e67. PMID: 16435904 #AND# PLoS Med. 2006 Jan;3(1):e73; author reply e67. PMID: 16435903 #AND# PLoS Med. 2006 Jan;3(1):e72; author reply e67. PMID: 16435902
+CRDT: 2005/10/20 09:00
+DA: 20051118
+DCOM: 20060613
+DEP: 20051025
+DP: 2005 Nov
+EDAT: 2005/10/20 09:00
+EIN: PLoS Med. 2006 May;3(5):e298
+FAU: Auvert, Bertran #AND# Taljaard, Dirk #AND# Lagarde, Emmanuel #AND# Sobngwi-Tambekou, Joelle #AND# Sitta, Remi #AND# Puren, Adrian
+IP: 11
+IS: 1549-1676 (Electronic) #AND# 1549-1277 (Linking)
+JID: 101231360
+JT: PLoS medicine
+LA: eng
+LR: 20140910
+MH: Adolescent #AND# Adult #AND# *Circumcision, Male #AND# Condoms #AND# HIV Infections/*prevention &amp; control/transmission #AND# HIV-1/pathogenicity #AND# *Health Behavior #AND# Humans #AND# Intervention Studies #AND# Male #AND# *Sexual Behavior #AND# South Africa #AND# Treatment Outcome #AND# Urban Population
+MHDA: 2006/06/14 09:00
+OID: NLM: PMC1262556
+OWN: NLM
+PG: e298
+PHST: 2005/06/29 [received] #AND# 2005/09/26 [accepted] #AND# 2005/10/25 [aheadofprint]
+PL: United States
+PMC: PMC1262556
+PMID: 16231970
+PST: ppublish
+PT: Journal Article #AND# Randomized Controlled Trial #AND# Research Support, Non-U.S. Gov't
+SB: IM
+SI: ClinicalTrials.gov/NCT00122525
+SO: PLoS Med. 2005 Nov;2(11):e298. Epub 2005 Oct 25. 
+STAT: MEDLINE
+TA: PLoS Med
+TAG: AuveTalj05
+TI: Randomized, controlled intervention trial of male circumcision for reduction of HIV infection risk: the ANRS 1265 Trial.
+VI: 2
