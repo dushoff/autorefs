@@ -5,7 +5,7 @@ target pngtarget pdftarget vtarget acrtarget: test.bib
 
 ##################################################################
 
-Sources = Makefile 
+Sources = Makefile inc.mk
 
 ##################################################################
 
@@ -28,31 +28,30 @@ Sources += int.pl test.rmu
 	$(PUSH)
 
 Sources += bibmk.pl
-test.bibmk: test.int $(autorefs)/bibmk.pl
+%.bibmk: %.int $(autorefs)/bibmk.pl
 	$(PUSH)
 
 Sources += pm.pl
-## test.bib: test.int $(autorefs)/pm.pl 
-test.bib: test.int pm.pl
-	$(MAKE) test.bibmk
-	$(MAKE) -f test.bibmk -f Makefile bibrec
+%.bib: %.int $(autorefs)/pm.pl
+	$(MAKE) $*.bibmk
+	$(MAKE) -f $*.bibmk -f $(autorefs)/Makefile bibrec
 	$(PUSH)
 
 .PRECIOUS: $(bib)/%.pm.med
 $(bib)/%.pm.med:
 	wget -O $@ "http://www.ncbi.nlm.nih.gov/pubmed/$*?dopt=MEDLINE&output=txt"
 
-Sources += $(wildcard *.mdl)
+Sources += $(wildcard corr/*.mdl)
 .PRECIOUS: $(bib)/%.mdl
-$(bib)/%.mdl: $(autorefs)/%.mdl
+$(bib)/%.mdl: $(autorefs)/corr/%.mdl
 	/bin/cp -f $< $@
 
 Sources += mm.pl
-%.mdl: %.med mm.pl
+%.mdl: %.med $(autorefs)/mm.pl
 	$(PUSH)
 
 Sources += mbib.pl
-%.bibrec: %.mdl mbib.pl
+%.bibrec: %.mdl $(autorefs)/mbib.pl
 	$(PUSH)
 
 ######################################################################
