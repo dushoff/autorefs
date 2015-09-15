@@ -1,7 +1,7 @@
 ### Hooks for the editor to set the default target
 current: target
 
-target pngtarget pdftarget vtarget acrtarget: test.bib 
+target pngtarget pdftarget vtarget acrtarget: test.bib
 
 ##################################################################
 
@@ -19,6 +19,8 @@ Makefile: $(bib)
 
 $(bib):
 	mkdir $@
+
+######################################################################
 
 # Make a bib file from .rmu
 # pm.pl calls make -f %.bibrec, which in turn calls the stuff below
@@ -54,11 +56,8 @@ Sources += mbib.pl
 %.bibrec: %.mdl $(autorefs)/mbib.pl
 	$(PUSH)
 
-######################################################################
-
-md = ../make/
-
-local = default
--include $(md)/local.mk
-include $(md)/$(local).mk
+ms = ../makestuff
+include $(ms)/git.mk
+include $(ms)/visual.mk
+include $(ms)/local.mk
 
