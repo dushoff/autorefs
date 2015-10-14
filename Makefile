@@ -68,5 +68,5 @@ Sources += mbib.pl
 
 include $(ms)/git.mk
 include $(ms)/visual.mk
-include $(ms)/local.mk
+-include $(ms)/local.mk
 
