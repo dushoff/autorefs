@@ -5,7 +5,7 @@ target pngtarget pdftarget vtarget acrtarget: temp
 
 ##################################################################
 
-Sources = Makefile inc.mk
+Sources = Makefile inc.mk .gitignore
 
 ms = ../makestuff
 -include $(ms)/git.def
