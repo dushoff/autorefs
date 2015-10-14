@@ -51,7 +51,7 @@ Sources += pm.pl
 $(bib)/%.pm.med:
 	wget -O $@ "http://www.ncbi.nlm.nih.gov/pubmed/$*?dopt=MEDLINE&output=txt"
 
-temp: 25390569.pm.corr
+temp: 25961848.pm.corr
 # To make a correction (or to disambiguate), copy the file in the bib directory (so we have a record) and then edit it.
 %.corr: $(bib)/%.mdl
 	$(CPF) $< $<.orig
