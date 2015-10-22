@@ -10,6 +10,17 @@ Sources = Makefile inc.mk .gitignore
 ms = ../makestuff
 -include $(ms)/git.def
 
+msrepo = git@github.com:dushoff
+
+## Change this name to download a new version of the makestuff directory
+Makefile: start.makestuff
+
+%.makestuff:
+	-cd $(dir $(ms)) && mv -f $(notdir $(ms)) .$(notdir $(ms))
+	cd $(dir $(ms)) && git clone $(msrepo)/$(notdir $(ms)).git
+	-cd $(dir $(ms)) && rm -rf .$(notdir $(ms))
+	touch $@
+
 ##################################################################
 
 # Keep files and do corrections in a local or Dropbox directory.
