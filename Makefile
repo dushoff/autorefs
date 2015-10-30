@@ -1,3 +1,4 @@
+### autorefs
 ### Hooks for the editor to set the default target
 current: target
 
@@ -7,10 +8,12 @@ target pngtarget pdftarget vtarget acrtarget: temp
 
 Sources = Makefile inc.mk .gitignore
 
-ms = ../makestuff
--include $(ms)/git.def
+gitroot = ../
+-include local.mk
+include $(gitroot)/local.mk
 
-msrepo = git@github.com:dushoff
+-include $(ms)/git.def
+-include $(ms)/perl.def
 
 ## Change this name to download a new version of the makestuff directory
 Makefile: start.makestuff
@@ -27,10 +30,6 @@ Makefile: start.makestuff
 # Or a repo for a specific project.
 # The idea is to let people do disambiguation their own way.
 
-PUSH = perl -wf $(filter %.pl, $^) $(filter-out %.pl, $^) > $@
-PSTAR = perl -wf $(filter %.pl, $^) $(filter-out %.pl, $^) $@ > $@
-
-export autorefs = ../autorefs
 export bib = ~/Dropbox/bib
 
 Makefile: $(bib)
@@ -45,6 +44,9 @@ $(bib):
 
 Sources += int.pl test.rmu
 %.int: %.rmu $(autorefs)/int.pl
+	$(PUSH)
+
+auto.int: auto.rmu $(autorefs)/int.pl
 	$(PUSH)
 
 Sources += bibmk.pl
@@ -62,7 +64,7 @@ Sources += pm.pl
 $(bib)/%.pm.med:
 	wget -O $@ "http://www.ncbi.nlm.nih.gov/pubmed/$*?dopt=MEDLINE&output=txt"
 
-temp: 25961848.pm.corr
+temp: 24026815.pm.corr
 # To make a correction (or to disambiguate), copy the file in the bib directory (so we have a record) and then edit it.
 %.corr: $(bib)/%.mdl
 	$(CPF) $< $<.orig
@@ -80,4 +82,3 @@ Sources += mbib.pl
 include $(ms)/git.mk
 include $(ms)/visual.mk
 -include $(ms)/local.mk
-
