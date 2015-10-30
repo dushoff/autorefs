@@ -2,7 +2,7 @@
 ### Hooks for the editor to set the default target
 current: target
 
-target pngtarget pdftarget vtarget acrtarget: temp 
+target pngtarget pdftarget vtarget acrtarget: 
 
 ##################################################################
 
@@ -10,9 +10,9 @@ Sources = Makefile inc.mk .gitignore
 
 gitroot = ../
 -include local.mk
-include $(gitroot)/local.mk
+ms = $(gitroot)/makestuff
+-include $(gitroot)/local.mk
 
--include $(ms)/git.def
 -include $(ms)/perl.def
 
 ## Change this name to download a new version of the makestuff directory
@@ -81,4 +81,3 @@ Sources += mbib.pl
 
 include $(ms)/git.mk
 include $(ms)/visual.mk
--include $(ms)/local.mk
