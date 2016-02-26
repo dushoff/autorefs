@@ -1,3 +1,5 @@
+### This project needs to be abandoned. Now making horrible stuff to do text in parallel with .bib for the new CIHR framework. Redo with python/entrez, I think.
+
 ### autorefs
 ### Hooks for the editor to set the default target
 current: target
@@ -49,6 +51,10 @@ Sources += int.pl test.rmu
 auto.int: auto.rmu $(autorefs)/int.pl
 	$(PUSH)
 
+Sources += refmk.pl
+%.refmk: %.int $(autorefs)/refmk.pl
+	$(PUSH)
+
 Sources += bibmk.pl
 %.bibmk: %.int $(autorefs)/bibmk.pl
 	$(PUSH)
@@ -58,6 +64,12 @@ Sources += pm.pl
 %.bib: %.int $(autorefs)/pm.pl
 	$(MAKE) $*.bibmk
 	$(MAKE) -f $*.bibmk -f $(autorefs)/Makefile bibrec
+	$(PUSH)
+
+Sources += ir.pl
+%.ref: %.int $(autorefs)/ir.pl
+	$(MAKE) $*.refmk
+	$(MAKE) -f $*.refmk -f $(autorefs)/Makefile refrec
 	$(PUSH)
 
 .PRECIOUS: $(bib)/%.pm.med
@@ -77,6 +89,10 @@ Sources += mm.pl
 
 Sources += mbib.pl
 %.bibrec: %.mdl $(autorefs)/mbib.pl
+	$(PUSH)
+
+Sources += mref.pl
+%.refrec: %.mdl $(autorefs)/mref.pl
 	$(PUSH)
 
 include $(ms)/git.mk
