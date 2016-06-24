@@ -61,6 +61,7 @@ Sources += bibmk.pl
 
 ## Unresolved craziness in NSERC proposal; this rule does not seem to work. Touching .rmu and making .int both fail to put .bib out of date.
 Sources += pm.pl
+.PRECIOUS: %.bib
 %.bib: %.int $(autorefs)/pm.pl
 	$(MAKE) $*.bibmk
 	$(MAKE) -f $*.bibmk -f $(autorefs)/Makefile bibrec
@@ -79,8 +80,8 @@ $(bib)/%.pm.med:
 temp: 24026815.pm.corr
 # To make a correction (or to disambiguate), copy the file in the bib directory (so we have a record) and then edit it.
 %.corr: $(bib)/%.mdl
-	$(CPF) $< $<.orig
-	$(EDIT) $<
+	/bin/cp $< $<.orig
+	gvim $<
 
 Sources += mm.pl
 .PRECIOUS: %.mdl
