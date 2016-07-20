@@ -8,7 +8,7 @@ my $f = <>;
 
 my %rx;
 
-# Find unique PMIDs
+# Find unique RXREFs
 foreach ($f =~ /\[RXREF:([^\]]*)\]/g){
 	$rx{$_}=1;
 }

@@ -1,10 +1,12 @@
 ### This project needs to be abandoned. Now making horrible stuff to do text in parallel with .bib for the new CIHR framework. Redo with python/entrez, I think.
 
+### Well, python is not as smooth as I would have thought ... also, I like the idea of downloading things once. We are back here and trying to expand to DOIs
+
 ### autorefs
 ### Hooks for the editor to set the default target
 current: target
 
-target pngtarget pdftarget vtarget acrtarget: 
+target pngtarget pdftarget vtarget acrtarget: test.point 
 
 ##################################################################
 
@@ -14,6 +16,7 @@ gitroot = ../
 -include local.mk
 ms = $(gitroot)/makestuff
 -include $(gitroot)/local.mk
+export autorefs = $(gitroot)/autorefs
 
 -include $(ms)/perl.def
 
@@ -42,13 +45,11 @@ $(bib):
 ######################################################################
 
 # Make a bib file from .rmu
-# pm.pl calls make -f %.bibrec, which in turn calls the stuff below
+# .bibrec is called via .bibmk, and kicks off the rest of the chain.
 
 Sources += int.pl test.rmu
+# test.int: test.rmu int.pl
 %.int: %.rmu $(autorefs)/int.pl
-	$(PUSH)
-
-auto.int: auto.rmu $(autorefs)/int.pl
 	$(PUSH)
 
 Sources += refmk.pl
@@ -59,14 +60,20 @@ Sources += bibmk.pl
 %.bibmk: %.int $(autorefs)/bibmk.pl
 	$(PUSH)
 
+Sources += point.pl
+%.point: %.int $(autorefs)/point.pl
+	$(PUSH)
+
 ## Unresolved craziness in NSERC proposal; this rule does not seem to work. Touching .rmu and making .int both fail to put .bib out of date.
 Sources += pm.pl
 .PRECIOUS: %.bib
 %.bib: %.int $(autorefs)/pm.pl
 	$(MAKE) $*.bibmk
-	$(MAKE) -f $*.bibmk -f $(autorefs)/Makefile bibrec
+	$(MAKE) $*.point
+	$(MAKE) -f $*.point -f $*.bibmk -f $(autorefs)/Makefile bibrec
 	$(PUSH)
 
+## This makes some sort of simple reference list and seems a bit deprecated
 Sources += ir.pl
 %.ref: %.int $(autorefs)/ir.pl
 	$(MAKE) $*.refmk
@@ -76,6 +83,10 @@ Sources += ir.pl
 .PRECIOUS: $(bib)/%.pm.med
 $(bib)/%.pm.med:
 	wget -O $@ "http://www.ncbi.nlm.nih.gov/pubmed/$*?dopt=MEDLINE&output=txt"
+
+.PRECIOUS: $(bib)/%.doi.med
+$(bib)/%.doi.med:
+	curl -o $@ -LH "Accept: application/x-research-info-systems" "http://dx.doi.org/$($*)"
 
 temp: 24026815.pm.corr
 # To make a correction (or to disambiguate), copy the file in the bib directory (so we have a record) and then edit it.
