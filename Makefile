@@ -46,6 +46,7 @@ $(bib):
 
 # Make a bib file from .rmu
 # .bibrec is called via .bibmk, and kicks off the rest of the chain.
+# DOI stuff is kind of working, but seems fragile. Leave it out for now.
 
 Sources += int.pl test.rmu
 # test.int: test.rmu int.pl
