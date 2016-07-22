@@ -6,30 +6,19 @@
 ### Hooks for the editor to set the default target
 current: target
 
-target pngtarget pdftarget vtarget acrtarget: test.point 
+target pngtarget pdftarget vtarget acrtarget: bib/8dfd560898103e0431e252b0116bc651.doi.mdl 
 
 ##################################################################
 
-Sources = Makefile inc.mk .gitignore
+Sources = Makefile stuff.mk inc.mk .gitignore
 
-gitroot = ../
--include local.mk
-ms = $(gitroot)/makestuff
--include $(gitroot)/local.mk
-export autorefs = $(gitroot)/autorefs
-
+include stuff.mk
 -include $(ms)/perl.def
 
-## Change this name to download a new version of the makestuff directory
-Makefile: start.makestuff
-
-%.makestuff:
-	-cd $(dir $(ms)) && mv -f $(notdir $(ms)) .$(notdir $(ms))
-	cd $(dir $(ms)) && git clone $(msrepo)/$(notdir $(ms)).git
-	-cd $(dir $(ms)) && rm -rf .$(notdir $(ms))
-	touch $@
-
 ##################################################################
+
+
+bib/8dfd560898103e0431e252b0116bc651.doi.mdl: mm.pl
 
 # Keep files and do corrections in a local or Dropbox directory.
 # Or a repo for a specific project.
@@ -37,7 +26,10 @@ Makefile: start.makestuff
 
 export bib = ~/Dropbox/bib
 
-Makefile: $(bib)
+Makefile: bib
+
+bib: $(bib)
+	$(forcelink)
 
 $(bib):
 	mkdir $@
@@ -81,17 +73,17 @@ Sources += ir.pl
 	$(MAKE) -f $*.refmk -f $(autorefs)/Makefile refrec
 	$(PUSH)
 
-.PRECIOUS: $(bib)/%.pm.med
-$(bib)/%.pm.med:
+.PRECIOUS: bib/%.pm.med
+bib/%.pm.med:
 	wget -O $@ "http://www.ncbi.nlm.nih.gov/pubmed/$*?dopt=MEDLINE&output=txt"
 
-.PRECIOUS: $(bib)/%.doi.med
-$(bib)/%.doi.med:
+.PRECIOUS: bib/%.doi.med
+bib/%.doi.med:
 	curl -o $@ -LH "Accept: application/x-research-info-systems" "http://dx.doi.org/$($*)"
 
 temp: 24026815.pm.corr
 # To make a correction (or to disambiguate), copy the file in the bib directory (so we have a record) and then edit it.
-%.corr: $(bib)/%.mdl
+%.corr: bib/%.mdl
 	/bin/cp $< $<.orig
 	gvim $<
 

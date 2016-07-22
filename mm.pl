@@ -6,14 +6,14 @@ my $f = <>;
 
 $f =~ s/.*<pre>//s;
 $f =~ s|</pre>.*||s;
-$f =~ s/\n([A-Z]*)\s*-\s*/%FIELD%$1: /g;
+$f =~ s/\n([A-Z][A-Z0-9]*)\s*-\s*/%FIELD%$1: /g;
 
 my %rec;
 
 foreach (split /%FIELD%/, $f){
 	s/\s+/ /g;
 	# print "Field: $_\n";
-	next unless my($key, $field) = /^([A-Z]*): (.*)/;
+	next unless my($key, $field) = /^([A-Z][A-Z0-9]*): (.*)/;
 	push @{$rec{$key}}, $field;
 }
 
