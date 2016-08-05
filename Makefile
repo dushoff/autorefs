@@ -6,7 +6,7 @@
 ### Hooks for the editor to set the default target
 current: target
 
-target pngtarget pdftarget vtarget acrtarget: bib/8dfd560898103e0431e252b0116bc651.doi.mdl 
+target pngtarget pdftarget vtarget acrtarget: bib/8dfd560898103e0431e252b0116bc651.doi.bibrec
 
 ##################################################################
 
@@ -73,6 +73,7 @@ Sources += ir.pl
 	$(MAKE) -f $*.refmk -f $(autorefs)/Makefile refrec
 	$(PUSH)
 
+## .med is a raw MEDLINE formatted download
 .PRECIOUS: bib/%.pm.med
 bib/%.pm.med:
 	wget -O $@ "http://www.ncbi.nlm.nih.gov/pubmed/$*?dopt=MEDLINE&output=txt"
@@ -83,15 +84,19 @@ bib/%.doi.med:
 
 temp: 24026815.pm.corr
 # To make a correction (or to disambiguate), copy the file in the bib directory (so we have a record) and then edit it.
-%.corr: bib/%.mdl
+bib/%.corr: bib/%.mdl
 	/bin/cp $< $<.orig
 	gvim $<
 
+## mdl has parsed fields from .med joined using #AND#
+## it also has a default tag created from author and date
+## as of 2016 the script attempts to "fill" using second choices
 Sources += mm.pl
 .PRECIOUS: %.mdl
 %.mdl: %.med $(autorefs)/mm.pl
 	$(PUSH)
 
+## bibrec is a single bibliographic record made from info in .mdl
 Sources += mbib.pl
 %.bibrec: %.mdl $(autorefs)/mbib.pl
 	$(PUSH)
