@@ -1,3 +1,6 @@
+Makefile: $(autorefs)
+$(autorefs): $(ms)
+
 %.bib %.int %.bibmk %.point: %.rmu
 	$(MAKE) -f $(autorefs)/Makefile $@
 
