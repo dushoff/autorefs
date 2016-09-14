@@ -1,12 +1,12 @@
-### This project needs to be abandoned. Now making horrible stuff to do text in parallel with .bib for the new CIHR framework. Redo with python/entrez, I think.
 
 ### Well, python is not as smooth as I would have thought ... also, I like the idea of downloading things once. We are back here and trying to expand to DOIs
+#### I had tried to switch to a python/entrez approach. Good thing I didn't record where I did that work!
 
 ### autorefs
 ### Hooks for the editor to set the default target
 current: target
 
-target pngtarget pdftarget vtarget acrtarget: bib/8dfd560898103e0431e252b0116bc651.doi.bibrec
+target pngtarget pdftarget vtarget acrtarget: test.bibmk 
 
 ##################################################################
 
@@ -36,29 +36,34 @@ $(bib):
 
 ######################################################################
 
+Sources += $(wildcard *.pl)
+
 # Make a bib file from .rmu
 # .bibrec is called via .bibmk, and kicks off the rest of the chain.
-# DOI stuff is kind of working, but seems fragile. Leave it out for now.
+# DOI stuff is kind of working ...
 
-Sources += int.pl test.rmu
+## Parse the .rmu file into something with "integrated" tags (IOW, understand both doi and pubmed references)
+Sources += test.rmu
 # test.int: test.rmu int.pl
 %.int: %.rmu $(autorefs)/int.pl
 	$(PUSH)
 
-Sources += refmk.pl
-%.refmk: %.int $(autorefs)/refmk.pl
-	$(PUSH)
-
-Sources += bibmk.pl
-%.bibmk: %.int $(autorefs)/bibmk.pl
-	$(PUSH)
-
-Sources += point.pl
+## Make variables so that we can refer to doi identifiers
 %.point: %.int $(autorefs)/point.pl
 	$(PUSH)
 
+######################################################################
+
+## Output formats; first make records, then files
+
+## bibrec is a single bibliographic record made from info in .mdl
+%.bibrec: %.mdl $(autorefs)/mbib.pl
+	$(PUSH)
+
+%.bibmk: %.int $(autorefs)/mkmk.pl
+	$(call PUSHARGS, bibrec)
+
 ## Unresolved craziness in NSERC proposal; this rule does not seem to work. Touching .rmu and making .int both fail to put .bib out of date.
-Sources += pm.pl
 .PRECIOUS: %.bib
 %.bib: %.int $(autorefs)/pm.pl
 	$(MAKE) $*.bibmk
@@ -67,7 +72,35 @@ Sources += pm.pl
 	$(PUSH)
 
 ## This makes some sort of simple reference list and seems a bit deprecated
-Sources += ir.pl
+%.refrec: %.mdl $(autorefs)/mref.pl
+	$(PUSH)
+
+%.refmk: %.int $(autorefs)/refmk.pl
+	$(PUSH)
+
+%.ref: %.int $(autorefs)/ir.pl
+	$(MAKE) $*.refmk
+	$(MAKE) -f $*.refmk -f $(autorefs)/Makefile refrec
+	$(PUSH)
+
+## Now trying to make a markdown version
+## First get the pipeline going, then look for hints from wikitext version on wiki
+## In the middle of all this; also, it doesn't seem right, because the markdown should ideally incorporate _text_ from the .rmu (otherwise, why all that work making rmus?
+
+%.mdrec: %.mdl $(autorefs)/mdrec.pl
+	$(PUSH)
+
+%.mdmk: %.int $(autorefs)/mdmk.pl
+	$(PUSH)
+
+%.md: %.int $(autorefs)/md.pl
+	$(MAKE) $*.mdmk
+	$(MAKE) -f $*.mdmk -f $(autorefs)/Makefile mdrec
+	$(PUSH)
+
+
+######################################################################
+
 %.ref: %.int $(autorefs)/ir.pl
 	$(MAKE) $*.refmk
 	$(MAKE) -f $*.refmk -f $(autorefs)/Makefile refrec
@@ -91,18 +124,8 @@ bib/%.corr: bib/%.mdl
 ## mdl has parsed fields from .med joined using #AND#
 ## it also has a default tag created from author and date
 ## as of 2016 the script attempts to "fill" using second choices
-Sources += mm.pl
 .PRECIOUS: %.mdl
 %.mdl: %.med $(autorefs)/mm.pl
-	$(PUSH)
-
-## bibrec is a single bibliographic record made from info in .mdl
-Sources += mbib.pl
-%.bibrec: %.mdl $(autorefs)/mbib.pl
-	$(PUSH)
-
-Sources += mref.pl
-%.refrec: %.mdl $(autorefs)/mref.pl
 	$(PUSH)
 
 include $(ms)/git.mk
