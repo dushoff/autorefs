@@ -14,7 +14,11 @@ sub fill{
 
 	$hp->{$a} = $hp->{$b} unless defined $hp->{$a};
 	$hp->{$b} = $hp->{$a} unless defined $hp->{$b};
-	say STDERR "Can't find $a or $b" unless defined $hp->{$a};
+	unless (defined $hp->{$a}){
+		say STDERR "Can't find $a or $b" unless defined $hp->{$a};
+		$hp->{$b} = ["Not found"];
+		$hp->{$a} = $hp->{$b};
+	}
 }
 
 my %rec;

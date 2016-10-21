@@ -1,9 +1,9 @@
+### autorefs
 
 ### Well, python is not as smooth as I would have thought ... also, I like the idea of downloading things once. We are back here and trying to expand to DOIs
 #### I had tried to switch to a python/entrez approach. Good thing I didn't record where I did that work!
 
-### autorefs
-### Hooks for the editor to set the default target
+### Hooks 
 current: target
 
 target pngtarget pdftarget vtarget acrtarget: test.bibmk 
@@ -37,6 +37,8 @@ $(bib):
 ######################################################################
 
 Sources += $(wildcard *.pl)
+
+Sources += notes.txt
 
 # Make a bib file from .rmu
 # .bibrec is called via .bibmk, and kicks off the rest of the chain.
@@ -107,19 +109,22 @@ Sources += test.rmu
 	$(PUSH)
 
 ## .med is a raw MEDLINE formatted download
-.PRECIOUS: bib/%.pm.med
-bib/%.pm.med:
+## Needed to change just some bib -> $(bib) and only need it sometimes!
+.PRECIOUS: $(bib)/%.pm.med
+$(bib)/%.pm.med:
 	wget -O $@ "http://www.ncbi.nlm.nih.gov/pubmed/$*?dopt=MEDLINE&output=txt"
 
-.PRECIOUS: bib/%.doi.med
-bib/%.doi.med:
+.PRECIOUS: $(bib)/%.doi.med
+$(bib)/%.doi.med:
 	curl -o $@ -LH "Accept: application/x-research-info-systems" "http://dx.doi.org/$($*)"
+
 
 temp: 24026815.pm.corr
 # To make a correction (or to disambiguate), copy the file in the bib directory (so we have a record) and then edit it.
+## This is not satisfying anymore; we want to have a way for a real project to push corrections over
 bib/%.corr: bib/%.mdl
 	/bin/cp $< $<.orig
-	gvim $<
+	$(EDIT) $<
 
 ## mdl has parsed fields from .med joined using #AND#
 ## it also has a default tag created from author and date

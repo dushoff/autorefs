@@ -1,3 +1,6 @@
+%.rmu: %.pmr
+	perl -wf $(autorefs)/nodoi.pl $< > $@
+
 %.bib %.int %.bibmk %.point: %.rmu
 	$(MAKE) -f $(autorefs)/Makefile $@
 
