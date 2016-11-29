@@ -6,3 +6,6 @@
 
 %.ref %.int %.refmk: %.rmu
 	$(MAKE) -f $(autorefs)/Makefile $@
+
+%.md %.mdmk: %.rmu
+	$(MAKE) -f $(autorefs)/Makefile $@

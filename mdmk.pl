@@ -16,4 +16,4 @@ foreach ($f =~ /\[RXREF:([^\]]*)\]/g){
 my @stems = sort keys %rx;
 @stems = grep {s/^/$base/} @stems;
 
-say "refrec: " .  join ".refrec ", @stems, "";
+say "mdrec: " .  join ".mdrec ", @stems, "";

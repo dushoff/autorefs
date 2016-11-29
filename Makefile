@@ -102,13 +102,7 @@ Sources += test.rmu
 	$(MAKE) -f $*.mdmk -f $(autorefs)/Makefile mdrec
 	$(PUSH)
 
-
 ######################################################################
-
-%.ref: %.int $(autorefs)/ir.pl
-	$(MAKE) $*.refmk
-	$(MAKE) -f $*.refmk -f $(autorefs)/Makefile refrec
-	$(PUSH)
 
 ## .med is a raw MEDLINE formatted download
 ## Needed to change just some bib -> $(bib) and only need it sometimes!

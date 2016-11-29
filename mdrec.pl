@@ -27,4 +27,9 @@ $author =~ s/\s*$//;
 
 my $tag = $rec{TAG};
 
-say "$tag :: $author. $rec{TI}. $rec{TA} $rec{VI}:$rec{PG} ($rec{DP}).";
+my $link;
+$link = "https://www.ncbi.nlm.nih.gov/pubmed/$rec{PMID}"
+	if defined $rec{PMID};
+$link = $rec{UR} if defined $rec{UR};
+
+say "_$tag:_ $author. [$rec{TI}]($link). $rec{TA} $rec{VI}:$rec{PG} ($rec{DP}).";
