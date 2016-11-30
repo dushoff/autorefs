@@ -6,7 +6,7 @@
 ### Hooks 
 current: target
 
-target pngtarget pdftarget vtarget acrtarget: test.bibmk 
+target pngtarget pdftarget vtarget acrtarget: temp 
 
 ##################################################################
 
@@ -115,7 +115,7 @@ $(bib)/%.doi.med:
 	curl -o $@ -LH "Accept: application/x-research-info-systems" "http://dx.doi.org/$($*)"
 
 
-temp: 24026815.pm.corr
+temp: bib/19901974.pm.corr
 # To make a correction (or to disambiguate), copy the file in the bib directory (so we have a record) and then edit it.
 ## This is not satisfying anymore; we want to have a way for a real project to push corrections over
 bib/%.corr: bib/%.mdl
@@ -128,6 +128,10 @@ bib/%.corr: bib/%.mdl
 .PRECIOUS: %.mdl
 %.mdl: %.med $(autorefs)/mm.pl
 	$(PUSH)
+
+%.rmk:
+	$(RM) $*
+	$(MAKE) $*
 
 include $(ms)/git.mk
 include $(ms)/visual.mk

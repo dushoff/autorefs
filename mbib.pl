@@ -31,6 +31,8 @@ print "year = {$rec{DP}},\n";
 print "title = {{$rec{TI}}},\n";
 print "journal = {$rec{TA}},\n";
 print "id = {$rec{AID}},\n";
-print "volume = {$rec{VI}},\n";
-print "pages = {$rec{PG}},\n";
+unless ($rec{VI} eq "Not found"){
+	print "volume = {$rec{VI}},\n";
+	print "pages = {$rec{PG}},\n";
+}
 print "pmid = {$rec{PMID}}}\n";
