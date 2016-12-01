@@ -20,4 +20,6 @@ foreach (keys %rx){
 	$f =~ s/\[RXREF:$_\]/$txt/;
 }
 
+$f =~ s/\[RXPOINT:[^\]]*]//g;
+
 say $f;

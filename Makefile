@@ -60,6 +60,8 @@ Sources += test.rmu
 
 ## Output formats; first make records, then files
 
+###### .bib #######
+
 ## bibrec is a single bibliographic record made from info in .mdl
 %.bibrec: %.mdl $(autorefs)/mbib.pl
 	$(PUSH)
@@ -75,7 +77,9 @@ Sources += test.rmu
 	$(MAKE) -f $*.point -f $*.bibmk -f $(autorefs)/Makefile bibrec
 	$(PUSH)
 
-## This makes some sort of simple reference list and seems a bit deprecated
+###### .ref #######
+
+## This makes some sort of simple reference list and seems a bit deprecated. Probably doesn't work for DOIs, but might be a simple fix.
 %.refrec: %.mdl $(autorefs)/mref.pl
 	$(PUSH)
 
@@ -86,6 +90,8 @@ Sources += test.rmu
 	$(MAKE) $*.refmk
 	$(MAKE) -f $*.refmk -f $(autorefs)/Makefile refrec
 	$(PUSH)
+
+###### .md #######
 
 ## Now trying to make a markdown version
 ## First get the pipeline going, then look for hints from wikitext version on wiki
