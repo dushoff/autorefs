@@ -104,6 +104,7 @@ Sources += test.rmu
 	$(PUSH)
 
 %.md: %.int $(autorefs)/md.pl
+	$(MAKE) $*.bib
 	$(MAKE) $*.mdmk
 	$(MAKE) -f $*.mdmk -f $(autorefs)/Makefile mdrec
 	$(PUSH)

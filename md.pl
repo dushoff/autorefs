@@ -14,6 +14,7 @@ foreach ($f =~ /\[RXREF:([^\]]*)\]/g){
 	$rx{$_}=1;
 }
 
+# Make mdrecs for each RXREF; replace RXREF with appropriate text
 foreach (keys %rx){
 	my $target = "$bib/$_.mdrec";
 	my $txt = `cat $target`;
