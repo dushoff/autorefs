@@ -32,4 +32,12 @@ $link = "https://www.ncbi.nlm.nih.gov/pubmed/$rec{PMID}"
 	if defined $rec{PMID};
 $link = $rec{UR} if defined $rec{UR};
 
-say "_$tag:_ $author. [$rec{TI}]($link). $rec{TA} $rec{VI}:$rec{PG} ($rec{DP}).";
+my $maclink;
+if ($link){
+	$maclink=$link;
+	$maclink =~ s|https*://([^/]*)/|http://$1.libaccess.lib.mcmaster.ca/|;
+}
+
+print "_$tag:_ $author. [$rec{TI}]";
+# print "($link) [(McMaster link)]($maclink)" if $link; 
+say ". [$rec{TI}]($link). $rec{TA} $rec{VI}:$rec{PG} ($rec{DP}).";
