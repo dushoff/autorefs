@@ -10,9 +10,9 @@ target pngtarget pdftarget vtarget acrtarget: temp
 
 ##################################################################
 
-Sources = Makefile stuff.mk inc.mk .gitignore
+Sources = Makefile sub.mk inc.mk .gitignore
 
-include stuff.mk
+include sub.mk
 -include $(ms)/perl.def
 
 ##################################################################
