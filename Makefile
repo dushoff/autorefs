@@ -5,8 +5,7 @@
 
 ### Hooks 
 current: target
-
-target pngtarget pdftarget vtarget acrtarget: temp 
+-include target.mk
 
 ##################################################################
 
@@ -121,20 +120,26 @@ $(bib)/%.pm.med:
 $(bib)/%.doi.med:
 	curl -o $@ -LH "Accept: application/x-research-info-systems" "http://dx.doi.org/$($*)"
 
+## Corrections
 
-temp: bib/19901974.pm.corr
-# To make a correction (or to disambiguate), copy the file in the bib directory (so we have a record) and then edit it.
-## This is not satisfying anymore; we want to have a way for a real project to push corrections over
-bib/%.corr: bib/%.mdl
-	/bin/cp $< $<.orig
-	$(EDIT) $<
+# To make a correction (or to disambiguate), copy mdl to a .corr file (which we will push)
+# ~/Dropbox/bib/98ccd4a361cfed7df91966e068af4ce4.doi.mdl
+
+dcorr: 98ccd4a361cfed7df91966e068af4ce4.doi.corr
+corr: 25244186.pm.corr
+%.corr: $(bib)/%.mdl
+	$(MV) $< $@
+	$(EDIT) $@
+	$(CP) $@ $<
+
+Sources += $(wildcard *.corr)
 
 ## mdl has parsed fields from .med joined using #AND#
 ## it also has a default tag created from author and date
 ## as of 2016 the script attempts to "fill" using second choices
-.PRECIOUS: %.mdl
-%.mdl: %.med $(autorefs)/mm.pl
-	$(PUSH)
+.PRECIOUS: $(bib)/%.mdl
+$(bib)/%.mdl: $(bib)/%.med $(autorefs)/mm.pl
+	$(CP) $*.corr $@ || $(PUSH)
 
 %.rmk:
 	$(RM) $*

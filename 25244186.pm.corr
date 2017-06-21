@@ -1,0 +1,44 @@
+AB: BACKGROUND: On March 23, 2014, the World Health Organization (WHO) was notified of an outbreak of Ebola virus disease (EVD) in Guinea. On August 8, the WHO declared the epidemic to be a "public health emergency of international concern." METHODS: By September 14, 2014, a total of 4507 probable and confirmed cases, including 2296 deaths from EVD (Zaire species) had been reported from five countries in West Africa--Guinea, Liberia, Nigeria, Senegal, and Sierra Leone. We analyzed a detailed subset of data on 3343 confirmed and 667 probable Ebola cases collected in Guinea, Liberia, Nigeria, and Sierra Leone as of September 14. RESULTS: The majority of patients are 15 to 44 years of age (49.9% male), and we estimate that the case fatality rate is 70.8% (95% confidence interval [CI], 69 to 73) among persons with known clinical outcome of infection. The course of infection, including signs and symptoms, incubation period (11.4 days), and serial interval (15.3 days), is similar to that reported in previous outbreaks of EVD. On the basis of the initial periods of exponential growth, the estimated basic reproduction numbers (R0 ) are 1.71 (95% CI, 1.44 to 2.01) for Guinea, 1.83 (95% CI, 1.72 to 1.94) for Liberia, and 2.02 (95% CI, 1.79 to 2.26) for Sierra Leone. The estimated current reproduction numbers (R) are 1.81 (95% CI, 1.60 to 2.03) for Guinea, 1.51 (95% CI, 1.41 to 1.60) for Liberia, and 1.38 (95% CI, 1.27 to 1.51) for Sierra Leone; the corresponding doubling times are 15.7 days (95% CI, 12.9 to 20.3) for Guinea, 23.6 days (95% CI, 20.2 to 28.2) for Liberia, and 30.2 days (95% CI, 23.6 to 42.3) for Sierra Leone. Assuming no change in the control measures for this epidemic, by November 2, 2014, the cumulative reported numbers of confirmed and probable cases are predicted to be 5740 in Guinea, 9890 in Liberia, and 5000 in Sierra Leone, exceeding 20,000 in total. CONCLUSIONS: These data indicate that without drastic improvements in control measures, the numbers of cases of and deaths from EVD are expected to continue increasing from hundreds to thousands per week in the coming months.
+AID: 10.1056/NEJMoa1411100 [doi]
+AU: 
+CIN: N Engl J Med. 2015 Jan 8;372(2):188. PMID: 25564904 #AND# N Engl J Med. 2015 Jan 8;372(2):188-9. PMID: 25564905 #AND# Semergen. 2015 May-Jun;41(4):226-7. PMID: 25559483 #AND# Evid Based Nurs. 2015 Oct;18(4):107. PMID: 25873576 #AND# N Engl J Med. 2014 Oct 16;371(16):1545-6. PMID: 25244185 #AND# N Engl J Med. 2015 Jan 8;372(2):189. PMID: 25564903 #AND# Evid Based Med. 2015 Feb;20(1):28. PMID: 25525042
+FAU: WHO Ebola Response Team
+CRDT: 2014/09/23 06:00
+DA: 20141016
+DCOM: 20141028
+DEP: 20140922
+DP: 2014 Oct 16
+EDAT: 2014/09/23 06:00
+FIR: Aylward, Bruce #AND# Barboza, Philippe #AND# Bawo, Luke #AND# Bertherat, Eric #AND# Bilivogui, Pepe #AND# Blake, Isobel #AND# Brennan, Rick #AND# Briand, Sylvie #AND# Chakauya, Jethro Magwati #AND# Chitala, Kennedy #AND# Conteh, Roland M #AND# Cori, Anne #AND# Croisier, Alice #AND# Dangou, Jean-Marie #AND# Diallo, Boubacar #AND# Donnelly, Christl A #AND# Dye, Christopher #AND# Eckmanns, Tim #AND# Ferguson, Neil M #AND# Formenty, Pierre #AND# Fuhrer, Caroline #AND# Fukuda, Keiji #AND# Garske, Tini #AND# Gasasira, Alex #AND# Gbanyan, Stephen #AND# Graaff, Peter #AND# Heleze, Emmanuel #AND# Jambai, Amara #AND# Jombart, Thibaut #AND# Kasolo, Francis #AND# Kadiobo, Albert Mbule #AND# Keita, Sakoba #AND# Kertesz, Daniel #AND# Kone, Moussa #AND# Lane, Chris #AND# Markoff, Jered #AND# Massaquoi, Moses #AND# Mills, Harriet #AND# Mulba, John Mike #AND# Musa, Emmanuel #AND# Myhre, Joel #AND# Nasidi, Abdusalam #AND# Nilles, Eric #AND# Nouvellet, Pierre #AND# Nshimirimana, Deo #AND# Nuttall, Isabelle #AND# Nyenswah, Tolbert #AND# Olu, Olushayo #AND# Pendergast, Scott #AND# Perea, William #AND# Polonsky, Jonathan #AND# Riley, Steven #AND# Ronveaux, Olivier #AND# Sakoba, Keita #AND# Santhana Gopala Krishnan, Ravi #AND# Senga, Mikiko #AND# Shuaib, Faisal #AND# Van Kerkhove, Maria D #AND# Vaz, Rui #AND# Wijekoon Kannangarage, Niluka #AND# Yoti, Zabulon
+GR: MR/K010174/1/Medical Research Council/United Kingdom #AND# U01 GM110721/GM/NIGMS NIH HHS/United States #AND# Medical Research Council/United Kingdom #AND# Wellcome Trust/United Kingdom
+IP: 16
+IR: Aylward B #AND# Barboza P #AND# Bawo L #AND# Bertherat E #AND# Bilivogui P #AND# Blake I #AND# Brennan R #AND# Briand S #AND# Chakauya JM #AND# Chitala K #AND# Conteh RM #AND# Cori A #AND# Croisier A #AND# Dangou JM #AND# Diallo B #AND# Donnelly CA #AND# Dye C #AND# Eckmanns T #AND# Ferguson NM #AND# Formenty P #AND# Fuhrer C #AND# Fukuda K #AND# Garske T #AND# Gasasira A #AND# Gbanyan S #AND# Graaff P #AND# Heleze E #AND# Jambai A #AND# Jombart T #AND# Kasolo F #AND# Kadiobo AM #AND# Keita S #AND# Kertesz D #AND# Kone M #AND# Lane C #AND# Markoff J #AND# Massaquoi M #AND# Mills H #AND# Mulba JM #AND# Musa E #AND# Myhre J #AND# Nasidi A #AND# Nilles E #AND# Nouvellet P #AND# Nshimirimana D #AND# Nuttall I #AND# Nyenswah T #AND# Olu O #AND# Pendergast S #AND# Perea W #AND# Polonsky J #AND# Riley S #AND# Ronveaux O #AND# Sakoba K #AND# Santhana Gopala Krishnan R #AND# Senga M #AND# Shuaib F #AND# Van Kerkhove MD #AND# Vaz R #AND# Wijekoon Kannangarage N #AND# Yoti Z
+IS: 1533-4406 (Electronic) #AND# 0028-4793 (Linking)
+JID: 0255562
+JT: The New England journal of medicine
+LA: ENG
+LID: 10.1056/NEJMoa1411100 [doi]
+LR: 20161122
+MH: Adolescent #AND# Adult #AND# Africa, Western/epidemiology #AND# Child #AND# Ebolavirus #AND# Epidemics/*statistics &amp; numerical data #AND# Female #AND# Hemorrhagic Fever, Ebola/diagnosis/*epidemiology/transmission #AND# Humans #AND# Incidence #AND# Infectious Disease Incubation Period #AND# Male #AND# Middle Aged #AND# Mortality #AND# Young Adult
+MHDA: 2014/10/29 06:00
+MID: EMS60898
+NAU: Not found
+OID: NLM: EMS60898 #AND# NLM: PMC4235004
+OWN: NLM
+PG: 1481-95
+PL: United States
+PMC: PMC4235004
+PMID: 25244186
+PST: ppublish
+PT: Journal Article #AND# Research Support, N.I.H., Extramural #AND# Research Support, Non-U.S. Gov't
+PY: 2014 Oct 16
+SB: AIM #AND# IM
+SO: N Engl J Med. 2014 Oct 16;371(16):1481-95. doi: 10.1056/NEJMoa1411100. Epub 2014 Sep 22. 
+SP: 1481-95
+STAT: MEDLINE
+T2: N Engl J Med
+TA: N Engl J Med
+TAG: WHO14
+TI: Ebola virus disease in West Africa--the first 9 months of the epidemic and forward projections.
+VI: 371
+VL: 371
