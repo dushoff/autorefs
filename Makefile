@@ -126,7 +126,7 @@ $(bib)/%.doi.med:
 # ~/Dropbox/bib/98ccd4a361cfed7df91966e068af4ce4.doi.mdl
 
 dcorr: 98ccd4a361cfed7df91966e068af4ce4.doi.corr
-corr: 25244186.pm.corr
+corr: 19393959.pm.corr
 %.corr: $(bib)/%.mdl
 	$(MV) $< $@
 	$(EDIT) $@
