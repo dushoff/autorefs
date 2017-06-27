@@ -126,11 +126,14 @@ $(bib)/%.doi.med:
 # ~/Dropbox/bib/98ccd4a361cfed7df91966e068af4ce4.doi.mdl
 
 dcorr: 98ccd4a361cfed7df91966e068af4ce4.doi.corr
+
+## Updated not tested! 27 Jun '17
 corr: 19393959.pm.corr
-%.corr: $(bib)/%.mdl
-	$(MV) $< $@
+%.corr: 
+	$(MAKE) $(bib)/$*.mdl
+	$(MV) $(bib)/$*.mdl $@
 	$(EDIT) $@
-	$(CP) $@ $<
+	$(CP) $@ $(bib)/$*.mdl
 
 Sources += $(wildcard *.corr)
 
