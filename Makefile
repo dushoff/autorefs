@@ -28,7 +28,7 @@ endif
 
 Makefile: bib
 
-bib: 
+$(bib): 
 	(touch $(Drop)/autorefs/testfile && $(LNF) $(Drop)/autorefs $@) || mkdir $@
 
 ######################################################################
