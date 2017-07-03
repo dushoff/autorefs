@@ -18,16 +18,13 @@ include sub.mk
 
 ##################################################################
 
-bib = bib
+ifndef autorefs
+autorefs = .
+endif
 
-
-bib/8dfd560898103e0431e252b0116bc651.doi.mdl: mm.pl
-
-# Keep files and do corrections in a local or Dropbox directory.
-# Or a repo for a specific project.
-# The idea is to let people do disambiguation their own way.
-
-export bib = ~/Dropbox/bib
+ifndef biblocation
+biblocation = $(autorefs)/bibfiles
+endif
 
 Makefile: bib
 
