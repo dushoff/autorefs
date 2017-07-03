@@ -11,6 +11,8 @@ current: target
 
 Sources = Makefile sub.mk inc.mk .gitignore
 
+Sources += makestuff
+
 include sub.mk
 -include $(ms)/perl.def
 
