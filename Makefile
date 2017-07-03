@@ -26,7 +26,7 @@ ifndef autorefs
 autorefs = .
 endif
 
-bib = $(autorefs)/bib
+export bib = $(autorefs)/bib
 
 Makefile: bib
 
