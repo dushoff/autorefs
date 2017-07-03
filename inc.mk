@@ -1,4 +1,4 @@
-bib = autorefs/bib
+export bib = autorefs/bib
 
 %.rmu: %.pmr
 	perl -wf $(autorefs)/nodoi.pl $< > $@
