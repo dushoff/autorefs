@@ -22,17 +22,14 @@ ifndef autorefs
 autorefs = .
 endif
 
-ifndef biblocation
-biblocation = $(autorefs)/bibfiles
+ifndef bib
+bib = bib
 endif
 
 Makefile: bib
 
-bib: $(bib)
-	$(forcelink)
-
-$(bib):
-	mkdir $@
+bib: 
+	(touch $(Drop)/autorefs/testfile && $(LNF) $(Drop)/autorefs $@) || mkdir $@
 
 ######################################################################
 

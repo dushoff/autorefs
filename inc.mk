@@ -1,3 +1,5 @@
+bib = autorefs/bib
+
 %.rmu: %.pmr
 	perl -wf $(autorefs)/nodoi.pl $< > $@
 
