@@ -18,6 +18,10 @@ include sub.mk
 
 ##################################################################
 
+ifndef Drop
+Drop = ~/Dropbox
+endif
+
 ifndef autorefs
 autorefs = .
 endif
