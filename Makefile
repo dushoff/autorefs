@@ -109,11 +109,11 @@ Sources += test.rmu
 ## .med is a raw MEDLINE formatted download
 ## Needed to change just some bib -> $(bib) and only need it sometimes!
 .PRECIOUS: $(bib)/%.pm.med
-$(bib)/%.pm.med:
+$(bib)/%.pm.med: $(bib)
 	wget -O $@ "http://www.ncbi.nlm.nih.gov/pubmed/$*?dopt=MEDLINE&output=txt"
 
 .PRECIOUS: $(bib)/%.doi.med
-$(bib)/%.doi.med:
+$(bib)/%.doi.med: $(bib)
 	curl -o $@ -LH "Accept: application/x-research-info-systems" "http://dx.doi.org/$($*)"
 
 ## Corrections
