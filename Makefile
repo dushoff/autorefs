@@ -9,31 +9,29 @@ current: target
 
 ##################################################################
 
-Sources = Makefile stuff.mk inc.mk .gitignore
+Sources = Makefile sub.mk inc.mk .gitignore
 
-include stuff.mk
+Sources += makestuff
+
+include sub.mk
 -include $(ms)/perl.def
 
 ##################################################################
 
-bib = bib
+ifndef Drop
+Drop = ~/Dropbox
+endif
 
+ifndef autorefs
+autorefs = .
+endif
 
-bib/8dfd560898103e0431e252b0116bc651.doi.mdl: mm.pl
-
-# Keep files and do corrections in a local or Dropbox directory.
-# Or a repo for a specific project.
-# The idea is to let people do disambiguation their own way.
-
-export bib = ~/Dropbox/bib
+export bib = $(autorefs)/bib
 
 Makefile: bib
 
-bib: $(bib)
-	$(forcelink)
-
-$(bib):
-	mkdir $@
+$(bib): 
+	(touch $(Drop)/autorefs/testfile && $(LNF) $(Drop)/autorefs $@) || mkdir $@
 
 ######################################################################
 
@@ -113,27 +111,36 @@ Sources += test.rmu
 ## .med is a raw MEDLINE formatted download
 ## Needed to change just some bib -> $(bib) and only need it sometimes!
 .PRECIOUS: $(bib)/%.pm.med
-$(bib)/%.pm.med:
+$(bib)/%.pm.med: $(bib)
 	wget -O $@ "http://www.ncbi.nlm.nih.gov/pubmed/$*?dopt=MEDLINE&output=txt"
 
 .PRECIOUS: $(bib)/%.doi.med
-$(bib)/%.doi.med:
+$(bib)/%.doi.med: $(bib)
 	curl -o $@ -LH "Accept: application/x-research-info-systems" "http://dx.doi.org/$($*)"
 
+## Corrections
 
-temp: bib/19901974.pm.corr
-# To make a correction (or to disambiguate), copy the file in the bib directory (so we have a record) and then edit it.
-## This is not satisfying anymore; we want to have a way for a real project to push corrections over
-bib/%.corr: bib/%.mdl
-	/bin/cp $< $<.orig
-	$(EDIT) $<
+# To make a correction (or to disambiguate), copy mdl to a .corr file (which we will push)
+# ~/Dropbox/bib/98ccd4a361cfed7df91966e068af4ce4.doi.mdl
+
+dcorr: 98ccd4a361cfed7df91966e068af4ce4.doi.corr
+
+## Updated not tested! 27 Jun '17
+corr: 19393959.pm.corr
+%.corr: 
+	$(MAKE) $(bib)/$*.mdl
+	$(MV) $(bib)/$*.mdl $@
+	$(EDIT) $@
+	$(CP) $@ $(bib)/$*.mdl
+
+Sources += $(wildcard *.corr)
 
 ## mdl has parsed fields from .med joined using #AND#
 ## it also has a default tag created from author and date
 ## as of 2016 the script attempts to "fill" using second choices
-.PRECIOUS: %.mdl
-%.mdl: %.med $(autorefs)/mm.pl
-	$(PUSH)
+.PRECIOUS: $(bib)/%.mdl
+$(bib)/%.mdl: $(bib)/%.med $(autorefs)/mm.pl
+	$(CP) $*.corr $@ || $(PUSH)
 
 %.rmk:
 	$(RM) $*

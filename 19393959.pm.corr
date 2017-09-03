@@ -1,0 +1,42 @@
+AB: Knowledge of the incubation period is essential in the investigation and control of infectious disease, but statements of incubation period are often poorly referenced, inconsistent, or based on limited data. In a systematic review of the literature on nine respiratory viral infections of public-health importance, we identified 436 articles with statements of incubation period and 38 with data for pooled analysis. We fitted a log-normal distribution to pooled data and found the median incubation period to be 5.6 days (95% CI 4.8-6.3) for adenovirus, 3.2 days (95% CI 2.8-3.7) for human coronavirus, 4.0 days (95% CI 3.6-4.4) for severe acute respiratory syndrome coronavirus, 1.4 days (95% CI 1.3-1.5) for influenza A, 0.6 days (95% CI 0.5-0.6) for influenza B, 12.5 days (95% CI 11.8-13.3) for measles, 2.6 days (95% CI 2.1-3.1) for parainfluenza, 4.4 days (95% CI 3.9-4.9) for respiratory syncytial virus, and 1.9 days (95% CI 1.4-2.4) for rhinovirus. When using the incubation period, it is important to consider its full distribution: the right tail for quarantine policy, the central regions for likely times and sources of infection, and the full distribution for models used in pandemic planning. Our estimates combine published data to give the detail necessary for these and other applications.
+AD: Department of Epidemiology, Johns Hopkins Bloomberg School of Public Health, Baltimore, MD, USA.
+AID: S1473-3099(09)70069-6 [pii] #AND# 10.1016/S1473-3099(09)70069-6 [doi]
+AU: Lessler J #AND# Reich NG #AND# Brookmeyer R #AND# Perl TM #AND# Nelson KE #AND# Cummings DA
+CRDT: 2009/04/28 09:00
+DA: 20090427
+DCOM: 20090527
+DP: 2009 May
+EDAT: 2009/04/28 09:00
+FAU: Lessler, Justin #AND# Reich, Nicholas G #AND# Brookmeyer, Ron #AND# Perl, Trish M #AND# Nelson, Kenrad E #AND# Cummings, Derek A T
+GR: U38 HK000014/HK/PHITPO CDC HHS/United States #AND# U01-GM070708/GM/NIGMS NIH HHS/United States #AND# R01 TW008246/TW/FIC NIH HHS/United States #AND# U01 GM070708/GM/NIGMS NIH HHS/United States #AND# HK00014/HK/PHITPO CDC HHS/United States
+IP: 5
+IS: 1474-4457 (Electronic) #AND# 1473-3099 (Linking)
+JID: 101130150
+JT: The Lancet. Infectious diseases
+LA: eng
+LID: 10.1016/S1473-3099(09)70069-6 [doi]
+LR: 20170220
+MH: Adolescent #AND# Adult #AND# Aged #AND# Aged, 80 and over #AND# Child #AND# Child, Preschool #AND# Female #AND# Humans #AND# Infant #AND# *Infectious Disease Incubation Period #AND# Male #AND# Middle Aged #AND# Respiratory Tract Infections/transmission/*virology #AND# Young Adult
+MHDA: 2009/05/28 09:00
+MID: NIHMS636907
+NAU: Lessler J #AND# Reich N #AND# Brookmeyer R #AND# Perl T #AND# Nelson K #AND# Cummings D
+OID: NLM: NIHMS636907 #AND# NLM: PMC4327893
+OWN: NLM
+PG: 291-300
+PL: United States
+PMC: PMC4327893
+PMID: 19393959
+PST: ppublish
+PT: Journal Article #AND# Research Support, N.I.H., Extramural #AND# Research Support, Non-U.S. Gov't #AND# Research Support, U.S. Gov't, Non-P.H.S. #AND# Research Support, U.S. Gov't, P.H.S. #AND# Review
+PY: 2009 May
+RF: 83
+SB: IM
+SO: Lancet Infect Dis. 2009 May;9(5):291-300. doi: 10.1016/S1473-3099(09)70069-6. 
+SP: 291-300
+STAT: MEDLINE
+T2: Lancet Infect Dis
+TA: Lancet Infect Dis
+TAG: LessReic09inc
+TI: Incubation periods of acute respiratory viral infections: a systematic review.
+VI: 9
+VL: 9

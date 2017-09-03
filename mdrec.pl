@@ -32,6 +32,7 @@ $link = "https://www.ncbi.nlm.nih.gov/pubmed/$rec{PMID}"
 	if defined $rec{PMID};
 $link = $rec{UR} if defined $rec{UR};
 
+## maclink currently seems to work with doi but not pubmed??
 my $maclink;
 if ($link){
 	$maclink=$link;
@@ -39,5 +40,6 @@ if ($link){
 }
 
 print "_$tag:_ $author. [$rec{TI}]";
-# print "($link) [(McMaster link)]($maclink)" if $link; 
-say ". [$rec{TI}]($link). $rec{TA} $rec{VI}:$rec{PG} ($rec{DP}).";
+print "($link)" if $link; 
+print " [(McMaster link)]($maclink)" if ($link && $link=~/dx.doi/);  
+say ". $rec{TA} $rec{VI}:$rec{PG} ($rec{DP}).";
