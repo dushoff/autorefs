@@ -1,4 +1,3 @@
-export autorefs = autorefs
 
 %.rmu: %.pmr
 	perl -wf $(autorefs)/nodoi.pl $< > $@

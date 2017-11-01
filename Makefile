@@ -13,7 +13,7 @@ Sources = Makefile sub.mk inc.mk .gitignore
 
 Sources += makestuff
 
-include sub.mk
+-include sub.mk
 -include $(ms)/perl.def
 
 ##################################################################
@@ -111,11 +111,13 @@ Sources += test.rmu
 ## .med is a raw MEDLINE formatted download
 ## Needed to change just some bib -> $(bib) and only need it sometimes!
 .PRECIOUS: $(bib)/%.pm.med
-$(bib)/%.pm.med: $(bib)
+$(bib)/%.pm.med: 
+	$(MAKE) $(bib)
 	wget -O $@ "http://www.ncbi.nlm.nih.gov/pubmed/$*?dopt=MEDLINE&output=txt"
 
 .PRECIOUS: $(bib)/%.doi.med
-$(bib)/%.doi.med: $(bib)
+$(bib)/%.doi.med:
+	$(MAKE) $(bib)
 	curl -o $@ -LH "Accept: application/x-research-info-systems" "http://dx.doi.org/$($*)"
 
 ## Corrections
