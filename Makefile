@@ -36,8 +36,9 @@ export bib = $(autorefs)/bib
 Makefile: $(bib)
 
 Ignore += bib
+$(bib): dir=$(Drop)/autorefs 
 $(bib): 
-	(touch $(Drop)/autorefs/testfile && $(LNF) $(Drop)/autorefs $@) || mkdir $@
+	$(linkdirname)
 
 ######################################################################
 
