@@ -22,13 +22,15 @@ ifndef Drop
 Drop = ~/Dropbox
 endif
 
+## $(autorefs) needs to be recognized as here by this directory and the client directory
 ifndef autorefs
 autorefs = .
 endif
 
 export bib = $(autorefs)/bib
 
-Makefile: bib
+## Can't make here until you set up an bib directory pointed to by Drop
+Makefile: $(bib)
 
 $(bib): 
 	(touch $(Drop)/autorefs/testfile && $(LNF) $(Drop)/autorefs $@) || mkdir $@
