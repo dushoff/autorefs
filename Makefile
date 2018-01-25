@@ -35,6 +35,7 @@ export bib = $(autorefs)/bib
 ## Can't make here until you set up an bib directory pointed to by Drop
 Makefile: $(bib)
 
+Ignore += bib
 $(bib): 
 	(touch $(Drop)/autorefs/testfile && $(LNF) $(Drop)/autorefs $@) || mkdir $@
 
