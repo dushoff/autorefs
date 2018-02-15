@@ -26,6 +26,7 @@ commit.time
 commit.default
 dotdir/
 clonedir/
+.clean_dir
 *.hup
 *.oldfile
 *.olddiff
