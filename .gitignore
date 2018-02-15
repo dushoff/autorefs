@@ -12,6 +12,7 @@ commit.time
 commit.default
 dotdir/
 clonedir/
+.clean_dir
 *.hup
 *.oldfile
 *.olddiff
@@ -20,7 +21,15 @@ clonedir/
 .*.aux
 *.blg
 *.bbl
+*.bcf
+*.run.xml
 .texdeps/
+appwrap.pdf
+interval.pdf
+appendix.pdf
+appwrap.out
+interval.out
+appendix.out
 up.time
 commit.time
 commit.default
