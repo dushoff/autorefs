@@ -6,18 +6,13 @@ make.log
 .gitignore 
 
 ## content from makestuff
+refs.bib
 up.time
 commit.time
 commit.default
 dotdir/
 clonedir/
-*.oldfile
-*.olddiff
-up.time
-commit.time
-commit.default
-dotdir/
-clonedir/
+*.hup
 *.oldfile
 *.olddiff
 *.log
@@ -25,10 +20,12 @@ clonedir/
 .*.aux
 *.blg
 *.bbl
+.texdeps/
 up.time
 commit.time
 commit.default
 dotdir/
 clonedir/
+*.hup
 *.oldfile
 *.olddiff
