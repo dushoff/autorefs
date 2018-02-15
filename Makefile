@@ -3,13 +3,16 @@
 ### Well, python is not as smooth as I would have thought ... also, I like the idea of downloading things once. We are back here and trying to expand to DOIs
 #### I had tried to switch to a python/entrez approach. Good thing I didn't record where I did that work!
 
+## This is a weird overlap approach
+## Work on making autorefs pure service (like webpix); it doesn't need a centralized record
+
 ### Hooks 
 current: target
 -include target.mk
 
 ##################################################################
 
-Sources = Makefile sub.mk inc.mk .gitignore
+Sources = Makefile sub.mk inc.mk .ignore
 
 Sources += makestuff
 
@@ -22,16 +25,20 @@ ifndef Drop
 Drop = ~/Dropbox
 endif
 
+## $(autorefs) needs to be recognized as here by this directory and the client directory
 ifndef autorefs
 autorefs = .
 endif
 
 export bib = $(autorefs)/bib
 
-Makefile: bib
+## Can't make here until you set up an bib directory pointed to by Drop
+Makefile: $(bib)
 
+Ignore += bib
+$(bib): dir=$(Drop)/autorefs 
 $(bib): 
-	(touch $(Drop)/autorefs/testfile && $(LNF) $(Drop)/autorefs $@) || mkdir $@
+	$(linkdirname)
 
 ######################################################################
 
@@ -121,6 +128,8 @@ $(bib)/%.doi.med:
 	curl -o $@ -LH "Accept: application/x-research-info-systems" "http://dx.doi.org/$($*)"
 
 ## Corrections
+
+## Some of this is out of date
 
 # To make a correction (or to disambiguate), copy mdl to a .corr file (which we will push)
 # ~/Dropbox/bib/98ccd4a361cfed7df91966e068af4ce4.doi.mdl
