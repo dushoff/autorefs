@@ -6,7 +6,6 @@ make.log
 .gitignore 
 
 ## content from makestuff
-refs.bib
 up.time
 commit.time
 commit.default
@@ -16,20 +15,6 @@ clonedir/
 *.hup
 *.oldfile
 *.olddiff
-*.log
-*.aux
-.*.aux
-*.blg
-*.bbl
-*.bcf
-*.run.xml
-.texdeps/
-appwrap.pdf
-interval.pdf
-appendix.pdf
-appwrap.out
-interval.out
-appendix.out
 up.time
 commit.time
 commit.default

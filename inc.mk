@@ -1,4 +1,3 @@
-
 %.rmu: %.pmr
 	perl -wf $(autorefs)/nodoi.pl $< > $@
 
