@@ -14,6 +14,7 @@ current: target
 
 Sources = Makefile sub.mk inc.mk .ignore
 
+ms = makestuff
 Sources += makestuff
 
 -include sub.mk
